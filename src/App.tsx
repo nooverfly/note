@@ -1,24 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+// import Steps, { Step } from "./components/steps";
+import Home from "./views/home";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Home></Home>
+      {/* <Steps>
+        <Step className="app-step">1</Step>
+        <Step className="app-step">2</Step>
+        <Step className="app-step">3</Step>
+        <Step className="app-step">4</Step>
+        <Step className="app-step">5</Step>
+        <Step className="app-step">6</Step>
+        <Step className="app-step">7</Step>
+        <Step className="app-step">8</Step>
+        <Step className="app-step">9</Step>
+        <Step className="app-step">10</Step>
+      </Steps> */}
     </div>
   );
 }
