@@ -7,6 +7,8 @@ import { interpolate, quantize } from "d3-interpolate";
 import { interpolateRainbow } from "d3-scale-chromatic";
 import { create } from "d3-selection";
 import "d3-transition";
+import "./style.scss";
+import FourQuadrantRule from "../../components/four-quadrant -rule";
 
 class Home extends React.Component {
   nodeRef = React.createRef<HTMLDivElement>();
@@ -146,7 +148,14 @@ class Home extends React.Component {
   }
 
   render() {
-    return <div className="full" ref={this.nodeRef}></div>;
+    return (
+      <div className="full home-wrapper">
+        <div style={{ width: "60%", height: "100%" }} ref={this.nodeRef}></div>
+        <div style={{ width: "40%", height: "100%" }}>
+          <FourQuadrantRule />
+        </div>
+      </div>
+    );
   }
 }
 
