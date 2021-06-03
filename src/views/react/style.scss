@@ -1,0 +1,23 @@
+.menu {
+  position: fixed;
+  top: 276px;
+  left: 51px;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li {
+      cursor: pointer;
+      padding: 5px 5px;
+      &:nth-child(1) {
+        border-bottom: 1px solid #ccc;
+      }
+      &:hover {
+        background-color: antiquewhite;
+      }
+    }
+  }
+}
