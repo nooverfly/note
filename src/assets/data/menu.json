@@ -14,7 +14,17 @@
           "children": [
             {
               "name": "React",
-              "url": "./js/react/index.html",
+              "url": "/react",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "name": "Tool Library",
+          "children": [
+            {
+              "name": "RxJS",
+              "url": "/rxjs",
               "value": 1
             }
           ]
@@ -26,11 +36,17 @@
       "children": [
         {
           "name": "Foundation",
-          "value": 1
+          "value": 1,
+          "url": "/css/foundation"
         },
         {
           "name": "Sass",
           "value": 1
+        },
+        {
+          "name": "Library",
+          "value": 1,
+          "url": "/css/library"
         }
       ]
     },
@@ -75,11 +91,32 @@
       "children": [
         {
           "name": "svg",
-          "value": 1
+          "children": [
+            {
+              "name": "foundation",
+              "vallue": 1,
+              "url": "/svg/foundation"
+            }
+          ]
         },
         {
           "name": "Canvas2D",
-          "value": 1
+          "children": [
+            {
+              "name": "foundation",
+              "vallue": 1
+            },
+            {
+              "name": "chart",
+              "children": [
+                {
+                  "name": "echarts",
+                  "value": 1,
+                  "url": "/canvas/chart/echarts"
+                }
+              ]
+            }
+          ]
         },
         {
           "name": "WebGL",

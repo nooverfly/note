@@ -24,8 +24,14 @@ class Home extends React.Component {
       root.each(
         (d: any) =>
           (d.target = {
-            x0: Math.max(0, Math.min(1, (d.x0 - p.x0) / (p.x1 - p.x0))) * 2 * Math.PI,
-            x1: Math.max(0, Math.min(1, (d.x1 - p.x0) / (p.x1 - p.x0))) * 2 * Math.PI,
+            x0:
+              Math.max(0, Math.min(1, (d.x0 - p.x0) / (p.x1 - p.x0))) *
+              2 *
+              Math.PI,
+            x1:
+              Math.max(0, Math.min(1, (d.x1 - p.x0) / (p.x1 - p.x0))) *
+              2 *
+              Math.PI,
             y0: Math.max(0, d.y0 - p.depth),
             y1: Math.max(0, d.y1 - p.depth),
           })
@@ -45,7 +51,9 @@ class Home extends React.Component {
           // @ts-ignore
           return +this.getAttribute("fill-opacity") || arcVisible(d.target);
         })
-        .attr("fill-opacity", (d: any) => (arcVisible(d.target) ? (d.children ? 0.6 : 0.4) : 0))
+        .attr("fill-opacity", (d: any) =>
+          arcVisible(d.target) ? (d.children ? 0.6 : 0.4) : 0
+        )
         // @ts-ignore
         .attrTween("d", (d: any) => () => myArc(d.current));
 
@@ -63,12 +71,13 @@ class Home extends React.Component {
 
     const jump = (event: any, p: any) => {
       const data = p.data;
-      /* if (data.url) {
-        window.location.href = data.url;
+      // @ts-ignore
+      const history = this.props.history;
+      if (data.url) {
+        history.push(data.url);
       } else {
         window.open(`https://www.baidu.com/s?wd=${data.name}`);
-      } */
-      window.open(`https://www.baidu.com/s?wd=${data.name}`);
+      }
     };
 
     const arcVisible = (d: any) => {
@@ -100,11 +109,18 @@ class Home extends React.Component {
       .innerRadius((d: any) => d.y0 * radius)
       .outerRadius((d: any) => Math.max(d.y0 * radius, d.y1 * radius - 1));
 
-    const color = scaleOrdinal(quantize(interpolateRainbow, data.children.length + 1));
+    const color = scaleOrdinal(
+      quantize(interpolateRainbow, data.children.length + 1)
+    );
     const root = myPartition(data);
     root.each((d: any) => (d.current = d));
-    const svg = create("svg").attr("width", width).attr("height", height).style("font", "14px 微软雅黑");
-    const g = svg.append("g").attr("transform", `translate(${width / 2},${height / 2})`);
+    const svg = create("svg")
+      .attr("width", width)
+      .attr("height", height)
+      .style("font", "14px 微软雅黑");
+    const g = svg
+      .append("g")
+      .attr("transform", `translate(${width / 2},${height / 2})`);
     const path = g
       .append("g")
       .selectAll("path")
@@ -114,7 +130,9 @@ class Home extends React.Component {
         while (d.depth > 1) d = d.parent;
         return color(d.data.name);
       })
-      .attr("fill-opacity", (d: any) => (arcVisible(d.current) ? (d.children ? 0.6 : 0.4) : 0))
+      .attr("fill-opacity", (d: any) =>
+        arcVisible(d.current) ? (d.children ? 0.6 : 0.4) : 0
+      )
       .attr("d", (d: any) => myArc(d.current));
 
     path
@@ -142,7 +160,13 @@ class Home extends React.Component {
       .attr("transform", (d: any) => labelTransform(d.current))
       .text((d: any) => d.data.name);
 
-    const parent = g.append("circle").datum(root).attr("r", radius).attr("fill", "none").attr("pointer-events", "all").on("click", clicked);
+    const parent = g
+      .append("circle")
+      .datum(root)
+      .attr("r", radius)
+      .attr("fill", "none")
+      .attr("pointer-events", "all")
+      .on("click", clicked);
 
     this.nodeRef.current!.appendChild(svg.node()!);
   }
@@ -150,10 +174,10 @@ class Home extends React.Component {
   render() {
     return (
       <div className="full home-wrapper">
-        <div style={{ width: "60%", height: "100%" }} ref={this.nodeRef}></div>
-        <div style={{ width: "40%", height: "100%" }}>
+        <div style={{ width: "100%", height: "100%" }} ref={this.nodeRef}></div>
+        {/* <div style={{ width: "40%", height: "100%" }}>
           <FourQuadrantRule />
-        </div>
+        </div> */}
       </div>
     );
   }

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useHistory } from "react-router-dom";
 import renderReact from "./renderReact";
 import "./style.scss";
 
@@ -9,6 +10,7 @@ interface IData {
 
 function ReactIndex() {
   const ref = useRef(null);
+  const history = useHistory();
   const [show, setShow] = useState(false);
   const [top, setTop] = useState(0);
   const [left, setLeft] = useState(0);
@@ -40,7 +42,7 @@ function ReactIndex() {
             >
               知识链接
             </li>
-            <li onClick={() => data.demoUrl && window.open(data.demoUrl)}>
+            <li onClick={() => data.demoUrl && history.push(data.demoUrl)}>
               示例链接
             </li>
           </ul>

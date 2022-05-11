@@ -65,6 +65,10 @@
           "name": "effetc hook"
         },
         {
+          "name": "useCallback",
+          "demoUrl": "/react/hooks/useCallback"
+        },
+        {
           "name": "自定义hook"
         }
       ]
@@ -96,7 +100,8 @@
     },
     {
       "name": "Fiber"
-    }, {
+    },
+    {
       "name": "其他",
       "children": [
         {
